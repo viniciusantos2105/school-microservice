@@ -27,7 +27,6 @@ public class UserService {
 
 
     public Usuario createUser(Usuario usuario) {
-        log.info("PAYROLL_SERVICE ::: Get request on " + env.getProperty("local.server.port") + "port");
         var address = feign.searchAddress(usuario.getAddress()).getBody();
         usuario.setAddress(address);
         return userRepository.save(usuario);
