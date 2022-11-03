@@ -4,6 +4,8 @@ package com.schoolmicroservice.addressapi.services.impl;
 import com.schoolmicroservice.addressapi.domain.Address;
 import com.schoolmicroservice.addressapi.services.AddressService;
 import com.schoolmicroservice.addressapi.services.exception.AddressNotFoundException;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -14,12 +16,25 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@RequiredArgsConstructor
+@Service
 public class AddressServiceImpl implements AddressService {
 
 
     @Override
     public Address findById(Long id) {
         return null;
+    }
+
+    @Override
+    public Address createAddress(Address address) {
+        List<String> listAddress = splitAddress(address(findAddressByCep(address.getCep())));
+        address.setCep(listAddress.get(0).substring(1));
+        address.setRua(listAddress.get(1).substring(2));
+        address.setBairro(listAddress.get(2).substring(2));
+        address.setCidade(listAddress.get(3).substring(2));
+        address.setEstado(listAddress.get(4).substring(2));
+        return address;
     }
 
     @Override
