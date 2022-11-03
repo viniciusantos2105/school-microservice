@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "0865852c-c10c-41c5-8162-8d375e330e80",
+		"name": "SchoolMicroservice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Address-API",
+			"item": [
+				{
+					"name": "GET ENDEREÇO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cep\": \"58257-000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8200/api/address/search",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"api",
+								"address",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscribe-API",
+			"item": [
+				{
+					"name": "INSCREVENDO ALUNO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"vinicius\",\r\n    \"age\": 21,\r\n    \"email\": \"vinicius@gmail.com\",\r\n    \"address\":{\r\n        \"cep\": \"40390-675\",\r\n        \"number\": \"28\"\r\n    } \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8765/subscribe-api/subscribe/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"subscribe-api",
+								"subscribe",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
