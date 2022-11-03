@@ -15,12 +15,12 @@ import javax.persistence.Id;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String nome;
     private Integer age;
     private String email;
 }

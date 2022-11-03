@@ -1,6 +1,6 @@
 package com.schoolmicroservice.subscribeapi.resources;
 
-import com.schoolmicroservice.subscribeapi.domain.User;
+import com.schoolmicroservice.subscribeapi.domain.Usuario;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,11 +12,11 @@ import java.util.List;
 public interface UserResource {
 
     @GetMapping(value = "/{id}")
-    ResponseEntity<User> findById(@PathVariable Long id);
+    ResponseEntity<Usuario> findById(@PathVariable Long id);
 
     @PostMapping("/create")
-    ResponseEntity<User> createUser(@RequestBody User user);
+    ResponseEntity<Usuario> createUser(@RequestBody Usuario usuario);
 
     @GetMapping
-    ResponseEntity<List<User>> findAll();
+    ResponseEntity<List<Usuario>> findAll();
 }

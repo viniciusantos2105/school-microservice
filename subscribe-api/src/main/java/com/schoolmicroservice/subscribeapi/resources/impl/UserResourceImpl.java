@@ -1,6 +1,6 @@
 package com.schoolmicroservice.subscribeapi.resources.impl;
 
-import com.schoolmicroservice.subscribeapi.domain.User;
+import com.schoolmicroservice.subscribeapi.domain.Usuario;
 import com.schoolmicroservice.subscribeapi.resources.UserResource;
 import com.schoolmicroservice.subscribeapi.services.UserService;
 import lombok.RequiredArgsConstructor;
@@ -23,18 +23,18 @@ public class UserResourceImpl implements UserResource {
     private final Environment env;
 
     @Override
-    public ResponseEntity<User> findById(Long id) {
+    public ResponseEntity<Usuario> findById(Long id) {
         log.info("USER_SERVICE ::: Get request on " + env.getProperty("local.server.port") + "port");
         return ResponseEntity.ok().body(service.findById(id));
     }
 
     @Override
-    public ResponseEntity<User> createUser(User user) {
-        return ResponseEntity.ok().body(service.createUser(user));
+    public ResponseEntity<Usuario> createUser(Usuario usuario) {
+        return ResponseEntity.ok().body(service.createUser(usuario));
     }
 
     @Override
-    public ResponseEntity<List<User>> findAll() {
+    public ResponseEntity<List<Usuario>> findAll() {
         return ResponseEntity.ok().body(service.findAll());
     }
 }
