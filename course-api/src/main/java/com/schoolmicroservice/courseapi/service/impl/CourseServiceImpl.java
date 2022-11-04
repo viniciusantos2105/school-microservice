@@ -21,16 +21,14 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Course findById(String id) {
-        Long finalId = Long.valueOf(id);
-        return repository.findById(finalId).orElseThrow(()-> new CourseNotFoundException());
+    public Course findById(Course id) {
+        return repository.findById(id.getId()).orElseThrow(()-> new CourseNotFoundException());
     }
 
     @Override
-    public String deleteCourse(String id) {
-        Long finalId = Long.valueOf(id);
-        Course course = repository.findById(finalId).orElseThrow(()-> new CourseNotFoundException());
-        repository.delete(course);
+    public String deleteCourse(Course id) {
+        Course course = repository.findById(id.getId()).orElseThrow(()-> new CourseNotFoundException());
+        repository.deleteById(id.getId());
         return "Matéria deletada com sucesso";
     }
 

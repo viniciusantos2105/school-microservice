@@ -8,9 +8,9 @@ public interface CourseService {
 
     Course create(Course course);
 
-    Course findById(String id);
+    Course findById(Course course);
 
-    String deleteCourse(String id);
+    String deleteCourse(Course course);
 
     List<Course> listAll();
 

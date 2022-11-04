@@ -26,13 +26,13 @@ public class CourseResourceImpl implements CourseResource {
     }
 
     @Override
-    public ResponseEntity<Course> findById(String id) {
-        return ResponseEntity.ok().body(service.findById(id));
+    public ResponseEntity<Course> findById(Course course) {
+        return ResponseEntity.ok().body(service.findById(course));
     }
 
     @Override
-    public ResponseEntity<String> delete(String id) {
-        return ResponseEntity.ok().body(service.deleteCourse(id));
+    public ResponseEntity<String> delete(Course course) {
+        return ResponseEntity.ok().body(service.deleteCourse(course));
     }
 
     @Override

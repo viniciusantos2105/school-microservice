@@ -15,10 +15,10 @@ public interface CourseResource {
     ResponseEntity<Course> createCourse(@RequestBody Course course);
 
     @GetMapping(value = "/findById")
-    ResponseEntity<Course> findById(@RequestBody String id);
+    ResponseEntity<Course> findById(@RequestBody Course course);
 
     @DeleteMapping(value = "/delete")
-    ResponseEntity<String> delete(@RequestBody String id);
+    ResponseEntity<String> delete(@RequestBody Course course);
 
     @GetMapping(value = "/listAll")
     ResponseEntity<List<Course>> listAll();
