@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter @Setter
@@ -19,5 +16,10 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private 
+    @OneToOne
+    private Person person;
+    //Lista de materias do estudante - private List<Course> listCourses;
+    //Unidade do estudante - private Unit unit;
+    //Curso que o aluno faz - private UndergraduateCourse undergraduateCourse;
+
 }

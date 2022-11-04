@@ -1,7 +1,7 @@
 package com.schoolmicroservice.subscribeapi.resources.impl;
 
-import com.schoolmicroservice.subscribeapi.domain.Usuario;
-import com.schoolmicroservice.subscribeapi.services.impl.UserService;
+import com.schoolmicroservice.subscribeapi.domain.Person;
+import com.schoolmicroservice.subscribeapi.services.impl.PersonService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.Environment;
@@ -14,25 +14,25 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/subscribe")
-public class UserResource {
+public class PersonResource {
 
-    private final UserService service;
+    private final PersonService service;
 
     private final Environment env;
 
 
-    public ResponseEntity<Usuario> findById(Long id) {
+    public ResponseEntity<Person> findById(Long id) {
         log.info("USER_SERVICE ::: Get request on " + env.getProperty("local.server.port") + "port");
         return ResponseEntity.ok().body(service.findById(id));
     }
 
     @PostMapping(value = "/create")
-    public ResponseEntity<Usuario> createUser(@RequestBody Usuario usuario) {
+    public ResponseEntity<Person> createUser(@RequestBody Person person) {
         log.info("USER_SERVICE ::: Get request on " + env.getProperty("local.server.port") + "port");
-        return ResponseEntity.ok().body(service.createUser(usuario));
+        return ResponseEntity.ok().body(service.createUser(person));
     }
 
-    public ResponseEntity<List<Usuario>> findAll() {
+    public ResponseEntity<List<Person>> findAll() {
         return ResponseEntity.ok().body(service.findAll());
     }
 }
