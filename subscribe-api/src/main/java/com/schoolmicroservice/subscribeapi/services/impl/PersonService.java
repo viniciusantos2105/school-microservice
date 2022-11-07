@@ -1,8 +1,10 @@
 package com.schoolmicroservice.subscribeapi.services.impl;
 
 import com.schoolmicroservice.subscribeapi.domain.Person;
+import com.schoolmicroservice.subscribeapi.dto.PersonDTO;
 import com.schoolmicroservice.subscribeapi.feignClient.AddressFeign;
 import com.schoolmicroservice.subscribeapi.repository.PersonRepository;
+import com.schoolmicroservice.subscribeapi.services.exceptions.PersonNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.Environment;
@@ -21,8 +23,8 @@ public class PersonService {
 
     private final AddressFeign feign;
 
-    public Person findById(Long id) {
-        return personRepository.findById(id).orElseThrow();
+    public Person findById(PersonDTO personDTO) {
+        return personRepository.findById(personDTO.getId()).orElseThrow(()-> new PersonNotFoundException());
     }
 
 

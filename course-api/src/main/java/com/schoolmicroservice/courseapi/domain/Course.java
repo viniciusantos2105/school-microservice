@@ -22,4 +22,5 @@ public class Course {
     private String name;
     private String startTime;
     private String endTime;
+    private Double price;
 }

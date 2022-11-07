@@ -1,6 +1,7 @@
 package com.schoolmicroservice.subscribeapi.resources.impl;
 
 import com.schoolmicroservice.subscribeapi.domain.Person;
+import com.schoolmicroservice.subscribeapi.dto.PersonDTO;
 import com.schoolmicroservice.subscribeapi.services.impl.PersonService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,9 +22,10 @@ public class PersonResource {
     private final Environment env;
 
 
-    public ResponseEntity<Person> findById(Long id) {
+    @GetMapping(value = "/findInscription")
+    public ResponseEntity<Person> findById(@RequestBody PersonDTO personDTO) {
         log.info("USER_SERVICE ::: Get request on " + env.getProperty("local.server.port") + "port");
-        return ResponseEntity.ok().body(service.findById(id));
+        return ResponseEntity.ok().body(service.findById(personDTO));
     }
 
     @PostMapping(value = "/create")

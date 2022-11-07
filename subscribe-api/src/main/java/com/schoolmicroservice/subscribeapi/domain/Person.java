@@ -22,11 +22,12 @@ public class Person {
     private Long id;
     @NotBlank
     private String name;
-    @NotBlank
+
     private Integer age;
     @Email
     private String email;
     @CPF
+    @NotBlank
     private String cpf;
     @OneToOne(cascade=CascadeType.PERSIST)
     private Address address;
