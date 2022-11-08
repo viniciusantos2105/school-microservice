@@ -17,10 +17,10 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
+
+    @OneToOne(cascade=CascadeType.PERSIST)
     private Person person;
-    private List<Course> listCourses;
-    //Unidade do estudante - private Unit unit;
-    //Curso que o aluno faz - private UndergraduateCourse undergraduateCourse;
+    @OneToMany
+    private List<Course> courseList;
 
 }

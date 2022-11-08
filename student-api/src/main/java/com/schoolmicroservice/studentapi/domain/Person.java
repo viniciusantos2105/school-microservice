@@ -1,6 +1,7 @@
 package com.schoolmicroservice.studentapi.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,11 +17,13 @@ public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @JoinColumn(name = "person_id")
+    private Long person_id;
     private String name;
     private Integer age;
     private String email;
     private String cpf;
     @OneToOne(cascade=CascadeType.PERSIST)
     private Address address;
+
 }

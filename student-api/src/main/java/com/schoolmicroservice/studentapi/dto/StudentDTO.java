@@ -8,8 +8,8 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PersonDTO {
+public class StudentDTO {
 
     private Long id;
-    private String cpf;
+
 }

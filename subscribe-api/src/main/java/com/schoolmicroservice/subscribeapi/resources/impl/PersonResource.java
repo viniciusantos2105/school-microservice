@@ -22,7 +22,7 @@ public class PersonResource {
     private final Environment env;
 
 
-    @GetMapping(value = "/findInscription")
+    @PostMapping(value = "/findInscription")
     public ResponseEntity<Person> findById(@RequestBody PersonDTO personDTO) {
         log.info("USER_SERVICE ::: Get request on " + env.getProperty("local.server.port") + "port");
         return ResponseEntity.ok().body(service.findById(personDTO));
