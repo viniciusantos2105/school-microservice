@@ -6,11 +6,12 @@ import com.schoolmicroservice.studentapi.dto.PersonDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @FeignClient(name = "course-api")
 public interface CourseFeign {
 
-    @GetMapping(value = "api/course/findById")
-    ResponseEntity<Person> findCourse(@RequestBody Course course);
+    @PostMapping(value = "api/course/findById")
+    ResponseEntity<Course> findCourse(@RequestBody Long id);
 }

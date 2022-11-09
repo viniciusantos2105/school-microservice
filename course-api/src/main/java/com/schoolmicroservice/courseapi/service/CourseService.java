@@ -8,7 +8,7 @@ public interface CourseService {
 
     Course create(Course course);
 
-    Course findById(Course course);
+    Course findById(Long id);
 
     String deleteCourse(Course course);
 

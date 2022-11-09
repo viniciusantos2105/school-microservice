@@ -26,8 +26,8 @@ public class CourseResourceImpl implements CourseResource {
     }
 
     @Override
-    public ResponseEntity<Course> findById(Course course) {
-        return ResponseEntity.ok().body(service.findById(course));
+    public ResponseEntity<Course> findById(Long id) {
+        return ResponseEntity.ok().body(service.findById(id));
     }
 
     @Override

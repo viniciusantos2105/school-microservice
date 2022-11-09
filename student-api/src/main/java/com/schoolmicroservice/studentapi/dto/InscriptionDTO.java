@@ -8,8 +8,8 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudentDTO {
+public class InscriptionDTO {
 
-    private Long id;
-
+    private Long courseId;
+    private Long studentId;
 }

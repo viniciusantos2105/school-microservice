@@ -14,8 +14,8 @@ public interface CourseResource {
     @PostMapping(value = "/create")
     ResponseEntity<Course> createCourse(@RequestBody Course course);
 
-    @GetMapping(value = "/findById")
-    ResponseEntity<Course> findById(@RequestBody Course course);
+    @PostMapping(value = "/findById")
+    ResponseEntity<Course> findById(@RequestBody Long id);
 
     @DeleteMapping(value = "/delete")
     ResponseEntity<String> delete(@RequestBody Course course);

@@ -2,8 +2,8 @@ package com.schoolmicroservice.studentapi.service;
 
 import com.schoolmicroservice.studentapi.domain.Course;
 import com.schoolmicroservice.studentapi.domain.Student;
+import com.schoolmicroservice.studentapi.dto.InscriptionDTO;
 import com.schoolmicroservice.studentapi.dto.PersonDTO;
-import com.schoolmicroservice.studentapi.dto.StudentDTO;
 import com.schoolmicroservice.studentapi.feignClients.CourseFeign;
 import com.schoolmicroservice.studentapi.feignClients.PersonFeign;
 import com.schoolmicroservice.studentapi.repository.StudentRepository;
@@ -32,10 +32,15 @@ public class StudentService {
         return repository.save(student);
     }
 
-    public Student addCourses(Course course, StudentDTO studentDTO){
-        var matter = courseFeign.findCourse(course).getBody();
-        Student student = repository.findById(studentDTO.getId()).orElseThrow(()-> new StudentNotFoundException());
+    public Student addCourses(InscriptionDTO inscriptionDTO){
+        Course course = courseFeign.findCourse(inscriptionDTO.getCourseId()).getBody();
+        Student student = repository.findById(inscriptionDTO.getStudentId()).orElseThrow(()-> new StudentNotFoundException());
         student.getCourseList().add(course);
-        return repository.save(student);
+        repository.save(student);
+        return student;
+    }
+
+    public Student getStudent(Long id){
+        return repository.findById(id).get();
     }
 }
